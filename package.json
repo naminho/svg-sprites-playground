@@ -1,0 +1,23 @@
+{
+	"name": "svg-sprites-polyfill-react",
+	"scripts": {
+		"start": "webpack-serve --open",
+		"build": "webpack"
+	},
+	"dependencies": {
+		"@babel/core": "^7.0.0-beta.49",
+		"@babel/preset-env": "^7.0.0-beta.49",
+		"@babel/preset-react": "^7.0.0-beta.49",
+		"babel-loader": "^8.0.0-beta.3",
+		"copy-webpack-plugin": "^4.5.1",
+		"exmpl": "^1.0.1",
+		"html-webpack-plugin": "^3.2.0",
+		"react": "^16.4.0",
+		"react-dom": "^16.4.0",
+		"svg-use-it": "^1.1.6",
+		"svg4everybody": "^2.1.9",
+		"webpack": "^4.11.1",
+		"webpack-cli": "^3.0.2",
+		"webpack-serve": "^1.0.2"
+	}
+}

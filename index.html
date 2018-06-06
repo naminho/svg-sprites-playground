@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>SVG Sprites Polyfill and React</title>
+    <link href="../node_modules/exmpl/styles.css" rel="stylesheet">
+    <link href="assets/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>SVG Sprites Polyfill and React</h1>
+    <select class="select-polyfill">
+      <option>svgUseIt</option>
+      <option>svg4everybody</option>
+    </select>
+    <button class="add-polyfill">Add Polyfill</button>
+    <button class="remove-polyfill">Remove Polyfill</button>
+    <h2>Regular Icon</h2>
+    <svg class="icon">
+      <use xlink:href="assets/sprite.svg#burger"></use>
+    </svg>
+    <h2>Rendered with React</h2>
+    <div class="react"></div>
+    <h2>Rendered with React on Trigger</h2>
+    <button class="react-load-button">Load</button>
+    <div class="react-load"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
