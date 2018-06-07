@@ -7,21 +7,27 @@ const polyfills = {
   svg4everybody
 }
 
-const initialPageContent = document.documentElement.innerHTML
+const select = document.querySelector(selectors.select)
+const previousPolyfill = localStorage.getItem('polyfill')
 
-const addButton = document.querySelector(selectors.add)
-const removeButton = document.querySelector(selectors.remove)
+if (previousPolyfill) {
+  select.value = previousPolyfill
+}
 
-addButton.addEventListener('click', () => addPolyfill())
-removeButton.addEventListener('click', () => removePolyfill())
+select.addEventListener('change', (event) => addPolyfill(event))
 
-const addPolyfill = () => {
-  const value = document.querySelector(selectors.select).value
+const addPolyfill = (event) => {
+  const value = select.value || event && event.target && event.target.value
+
+  if (!polyfills[value]) {
+    return
+  }
+
   polyfills[value]()
 }
 
 const removePolyfill = () => {
-  document.documentElement.innerHTML = initialPageContent
+  location.reload();
 }
 
 addPolyfill()

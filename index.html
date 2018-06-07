@@ -7,20 +7,35 @@
   <body>
     <h1>SVG Sprites Polyfill and React</h1>
     <select class="select-polyfill">
-      <option>svgUseIt</option>
+      <option>Without Polyfill</option>
       <option>svg4everybody</option>
+      <option>svgUseIt</option>
     </select>
-    <button class="add-polyfill">Add Polyfill</button>
-    <button class="remove-polyfill">Remove Polyfill</button>
     <h2>Regular Icon</h2>
     <svg class="icon">
       <use xlink:href="assets/sprite.svg#burger"></use>
     </svg>
+    <pre>
+&#x3C;svg class=&#x22;icon&#x22;&#x3E;
+  &#x3C;use xlink:href=&#x22;assets/sprite.svg#burger&#x22;&#x3E;&#x3C;/use&#x3E;
+&#x3C;/svg&#x3E;
+</pre>
     <h2>Rendered with React</h2>
     <div class="react"></div>
+    <pre>
+ReactDOM.render(
+  &#x3C;svg className=&#x22;icon&#x22;&#x3E;
+    &#x3C;use xlinkHref=&#x22;assets/sprite.svg#arrow-up&#x22; /&#x3E;
+  &#x3C;/svg&#x3E;
+)
+</pre>
     <h2>Rendered with React on Trigger</h2>
     <button class="react-load-button">Load</button>
     <div class="react-load"></div>
+    <h2>Dynaic Icon Rendered with React</h2>
+    <div class="react-dynamic"></div>
+    <h2>Dynaic Icon Rendered with ReactSVGPolyfill</h2>
+    <div class="react-polyfill"></div>
     <script src="main.js"></script>
   </body>
 </html>

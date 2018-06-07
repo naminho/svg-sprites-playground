@@ -1,9 +1,11 @@
-import renderIcon from './render-icon'
+import {renderStatic, renderDynamic, renderPolyfill} from './render'
 import polyfills from './polyfills'
 import selectors from './selectors'
 
-renderIcon(selectors.react)
+renderStatic(selectors.react, 'arrow-up')
+renderDynamic(selectors.dynamic)
+renderPolyfill(selectors.polyfill)
 
 const button = document.querySelector(selectors.reactLoadButton)
 
-button.addEventListener('click', () => renderIcon(selectors.reactLoad))
+button.addEventListener('click', () => renderStatic(selectors.reactLoad, 'plus'))

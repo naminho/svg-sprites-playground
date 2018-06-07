@@ -4,5 +4,7 @@ export default {
   remove: '.remove-polyfill',
   react: '.react',
   reactLoadButton: '.react-load-button',
-  reactLoad: '.react-load'
+  reactLoad: '.react-load',
+  dynamic: '.react-dynamic',
+  polyfill: '.react-polyfill'
 }
