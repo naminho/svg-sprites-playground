@@ -1,26 +1,12 @@
-# ReactSVGPolyfill
+# SVG Sprites Playground
 
-> Dynamic SVG Sprite Polyfill for React
+Try out different polyfills and combine SVG sprites and React.
 
-The missing React Component to polyfill dynamic SVG sprite icons in IE11.
+[Check out the Playground](http://naminho.ch/svg)
 
-## Installation
-
-```
-npm i react-svg-polyfill
-```
-
-## Usage
+## Run the Example
 
 ```
-import React from 'react'
-import ReactDOM from 'react-dom'
-import ReactSVGPolyfill from 'react-svg-polyfill'
-
-ReactDOM.render(
-  <ReactSVGPolyfill
-    href={`sprite.svg#${this.state.icon}`}
-  />,
-  document.querySelector('.react-outlet')
-)
+npm i
+npm start
 ```

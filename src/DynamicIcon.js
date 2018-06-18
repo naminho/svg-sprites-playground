@@ -1,36 +1,29 @@
 import React, {Component} from 'react'
-import ReactSVGPolyfill from './ReactSVGPolyfill'
+import ReactSprite from 'react-sprite'
+import selectors from './selectors'
+import URLComponent from './URLComponent'
 
-export default class DynamicIcon extends Component {
-  constructor () {
-    super()
-    this.state = {
-      icon: 'arrow-left'
-    }
+export default class DynamicIcon extends URLComponent {
+  constructor (props) {
+    super(props)
+    // this.state already created in URLComponent
+    this.state.icon = 'arrow-left'
   }
 
   handleSwitch () {
     this.setState({
       icon: this.state.icon === 'arrow-left' ? 'arrow-right' : 'arrow-left'
     })
-    this.forceUpdate()
-    alert('update')
   }
 
   renderIcon () {
-    if (this.props.polyfill) {
-      return (
-        <ReactSVGPolyfill
-          key={0}
-          href={`assets/sprite.svg#${this.state.icon}`}
-        />
-      )
-    }
-
     return (
-      <svg key={0} className="icon">
-        <use xlinkHref={`assets/sprite.svg#${this.state.icon}`} />
-      </svg>
+      <ReactSprite
+        key={0}
+        className="icon"
+        polyfill={this.props.polyfill}
+        href={`${this.state.url}#${this.state.icon}`}
+      />
     )
   }
 

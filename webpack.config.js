@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
   module: {
     rules: [
       {
@@ -13,7 +13,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({inject: 'body'}),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      inject: 'body'
+    }),
     new CopyWebpackPlugin(['assets/*'])
   ]
 }

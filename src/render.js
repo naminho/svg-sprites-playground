@@ -1,12 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import DynamicIcon from './DynamicIcon'
+import URLComponent from './URLComponent'
+
+class Icon extends URLComponent {
+  render() {
+    return (
+      <span>
+        <svg className="icon">
+          <use xlinkHref={`${this.state.url}#${this.props.icon}`} />
+        </svg>
+        <br/>
+      </span>
+    )
+  }
+}
 
 export function renderStatic (selector, icon) {
   ReactDOM.render(
-    <svg className="icon">
-      <use xlinkHref={`assets/sprite.svg#${icon}`} />
-    </svg>,
+    <Icon icon={icon} />,
     document.querySelector(selector)
   )
 }

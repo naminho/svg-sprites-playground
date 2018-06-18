@@ -1,5 +1,7 @@
 export default {
   select: '.select-polyfill',
+  selectSource: '.select-source',
+  xlinkHref: '[data-xlink-href]',
   add: '.add-polyfill',
   remove: '.remove-polyfill',
   react: '.react',

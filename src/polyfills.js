@@ -10,14 +10,16 @@ const polyfills = {
 const select = document.querySelector(selectors.select)
 const previousPolyfill = localStorage.getItem('polyfill')
 
-if (previousPolyfill) {
-  select.value = previousPolyfill
-}
+select.addEventListener('change', (event) => addPolyfill(event.target.value))
 
-select.addEventListener('change', (event) => addPolyfill(event))
+const addPolyfill = (value) => {
+  localStorage.setItem('polyfill', value)
+  select.value = value
 
-const addPolyfill = (event) => {
-  const value = select.value || event && event.target && event.target.value
+  // Reload to make sure existing polyfills are removed
+  if (previousPolyfill !== value) {
+    location.reload()
+  }
 
   if (!polyfills[value]) {
     return
@@ -26,8 +28,8 @@ const addPolyfill = (event) => {
   polyfills[value]()
 }
 
-const removePolyfill = () => {
-  location.reload();
+if (previousPolyfill) {
+  addPolyfill(previousPolyfill)
 }
 
-addPolyfill()
+select.removeAttribute('disabled')
